@@ -101,7 +101,8 @@ module.exports = {
 
         // TODO: move this to /config/mongodb.javascript
         // mongoose.connect('mongodb://ecommerce-dev:20150816@ds033163.mongolab.com:33163/ecommerce');
-        mongoose.connect('mongodb://localhost:27017');
+        // mongoose.connect('mongodb://localhost:27017');
+        mongoose.connect('mongodb://lastmin:ariKosa2230@ds135669.mlab.com:35669/lastmin');
         // logger.info('MongoDB is running on mongolab!!');
 
         // Creating routes
@@ -112,7 +113,8 @@ module.exports = {
 
 var mongooseConnect = function mongooseConnect() {
     // mongoose.connect('mongodb://ecommerce-dev:20150816@ds033163.mongolab.com:33163/ecommerce');
-    mongoose.connect('mongodb://localhost:27017');
+    // mongoose.connect('mongodb://localhost:27017');
+    mongoose.connect('mongodb://lastmin:ariKosa2230@ds135669.mlab.com:35669/lastmin');
 };
 
 var saveReturnToAfterLogin = function saveReturnToAfterLogin(req, res, next) {
