@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} 
+
+{% block main %} 
+
+        <div class="block">
+            <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms"> Product <span> details</span></h1>
+            <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">{{ produto.nome }}</p><br>
+            <div style="text-align: center;">
+            	<img src="{{ produto.imagen }}" width="300px;">
+        	</div>
+            <p>{{ produto.descricao }}</p>
+            <p>$ {{ produto.valor }}</p><br>
+            <div style="text-align: center;">
+            	<a class="btn btn-default"  href="/carrinho/add/{{produto._id.toString() }}" role="button">Buy</a>
+        	</div>
+        </div>
+                
+{% endblock %}

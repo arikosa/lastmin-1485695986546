@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} 
+
+{% block header %} 
+<!--  <section id="hero-area">
+      <img class="img-responsive" src="/static/images/header.png" alt="">
+    </section> -->
+{% endblock %}
+
+{% block main %} 
+
+        <div class="block">
+            <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms"> <span>Choose</span> your <span>offer</span></h1>
+            <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">Easy, Faster, Cheaper. </p>
+            <div class="pricing-list">
+                <ul>
+                    {% for produto in produtos %}
+                    <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <div class="item">
+                            <div class="item-title">
+                                <h2>{{ produto.nome }}</h2>
+                                <div class="border-bottom"></div>
+                                <span>$ {{ produto.valor }}</span>
+                            </div>
+                            <p>{{ produto.descricao }}</p>
+                            <p>
+                            <a class="btn btn-default"  href="/produtos/{{ produto.id.toString() }}" role="button">See offer details</a>
+                            </p>
+                        </div>
+                    </li>
+                      {% endfor %}
+                </ul>
+                
+            </div>
+        </div>
+                
+{% endblock %}

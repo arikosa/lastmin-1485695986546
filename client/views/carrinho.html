@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} 
+
+{% block main %} 
+
+        <div class="block">
+            <h1 class="heading wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms"> <span>Confirm</span> your <span>Purchase</span></h1>
+            <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="400ms">Easy, Faster, Cheaper. </p>
+            <div class="pricing-list">
+                <ul>
+                    {% if message  %} <p class="bg-warning">{{message}}</p>{% endif %}
+                    {% for carrinhoItem in carrinho %}
+                    <li class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
+                        <div class="item">
+                            <div class="item-title">
+                                <h2>{{ carrinhoItem.produto.nome }}</h2>
+                                <div class="border-bottom"></div>
+                                <span>$ {{ carrinhoItem.produto.valor }}</span>
+                            </div>
+                            <p>{{ carrinhoItem.produto.descricao }}</p>
+                            <p>
+                            <a class="btn btn-default"  href="/carrinho/delete/{{carrinhoItem.produto._id.toString()}}" role="button">Remove</a>
+                            </p>
+                        </div>
+                    </li>
+                      {% endfor %}
+                      
+                       {% if carrinho.length > 0  %} 
+                        <form action="/carrinho/finalizar" method="post">
+                              <div class="form-group" class="col-md-12">
+                                <label for="exampleInputEmail1">Enter your email</label>
+                                <input type="email" name="email" maxlength="50" class="" id="exampleInputEmail1" placeholder="name@domain.com" required="true">
+                              </div>
+                              <p align="center">
+                                  <button type="submit" class="btn btn-info pull-center">Confirm</button>
+                              </p>
+                        </form>
+                       
+                       {% endif %}
+                       
+                </ul>
+                
+            </div>
+        </div>
+                
+{% endblock %}
